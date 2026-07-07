@@ -3,8 +3,8 @@ from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from typing import Optional
 import json
-from backend.gemini_service import generate_quiz
-from backend.database import get_connection
+from gemini_service import generate_quiz
+from database import get_connection
 
 app = FastAPI(title="AI Quiz Generator API")
 
