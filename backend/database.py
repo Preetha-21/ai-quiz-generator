@@ -1,3 +1,4 @@
+import os
 import mysql.connector
 from mysql.connector import Error
 
@@ -5,12 +6,13 @@ from mysql.connector import Error
 def get_connection():
     try:
         connection = mysql.connector.connect(
-            host="gateway01.ap-southeast-1.prod.alicloud.tidbcloud.com",
-            port=4000,
-            user="2MXSmWTbKcPNxc3.root",
-            password="CyFF4IAY371cPYTL",
-            database="quiz_generator_agent",
-            ssl_ca="C:/Users/preet/Downloads/isrgrootx1.pem"
+            host=os.getenv("DB_HOST"),
+            port=int(os.getenv("DB_PORT", "4000")),
+            user=os.getenv("DB_USER"),
+            password=os.getenv("DB_PASSWORD"),
+            database=os.getenv("DB_NAME"),
+            ssl_verify_identity=False,
+            ssl_verify_cert=False
         )
 
         if connection.is_connected():
