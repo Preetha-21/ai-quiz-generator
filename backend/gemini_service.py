@@ -1,15 +1,14 @@
 import os
 import google.generativeai as genai
 
-
 genai.configure(
     api_key=os.getenv("GEMINI_API_KEY")
 )
 
+model = genai.GenerativeModel("gemini-2.5-flash")
+
 
 def generate_quiz(topic, difficulty, number_of_questions):
-
-    model = genai.GenerativeModel("gemini-1.5-flash")
 
     prompt = f"""
     Generate {number_of_questions} multiple choice questions.
@@ -17,7 +16,8 @@ def generate_quiz(topic, difficulty, number_of_questions):
     Topic: {topic}
     Difficulty: {difficulty}
 
-    Return only JSON format:
+    Return only valid JSON in this format:
+
     {{
       "questions": [
         {{
