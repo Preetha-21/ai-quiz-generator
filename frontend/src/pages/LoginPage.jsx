@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-const API_BASE = 'http://127.0.0.1:8000';
+const API_BASE = 'https://ai-quiz-generator-backend-usr0.onrender.com';
 
 function LoginPage({ onLogin }) {
   const [name, setName] = useState('');

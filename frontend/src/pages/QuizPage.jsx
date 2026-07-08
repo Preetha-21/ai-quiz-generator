@@ -2,7 +2,7 @@ import { useState, useEffect, useRef, useCallback } from 'react';
 import jsPDF from 'jspdf';
 import autoTable from 'jspdf-autotable';
 
-const API_BASE = 'http://127.0.0.1:8000';
+const API_BASE = 'https://ai-quiz-generator-backend-usr0.onrender.com';
 const TIMER_SECONDS = 300; // 5 minutes
 
 function QuizPage({ user }) {
